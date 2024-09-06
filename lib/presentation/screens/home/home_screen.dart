@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:widgets_app/config/menu/menu_items.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -9,10 +10,32 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Flutter + Material 3'),
       ),
-      body: FilledButton(
-        onPressed: () {},
-        child: const Text('Filled Button'),
-      ),
+      body: const _HomeView(),
+    );
+  }
+}
+
+class _HomeView extends StatelessWidget {
+  const _HomeView();
+
+  @override
+  Widget build(BuildContext context) {
+    final colors = Theme.of(context).colorScheme;
+
+    return ListView.builder(
+      itemCount: appMenuItems.length,
+      itemBuilder: (context, index) {
+        final item = appMenuItems[index];
+
+        return ListTile(
+          title: Text(item.title),
+          leading: Icon(item.icon, color: colors.primary),
+          trailing:
+              Icon(Icons.arrow_forward_ios_rounded, color: colors.primary),
+          subtitle: Text(item.subtitle),
+          onTap: () => Navigator.pushNamed(context, item.link),
+        );
+      },
     );
   }
 }
