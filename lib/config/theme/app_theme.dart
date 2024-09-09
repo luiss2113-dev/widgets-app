@@ -23,7 +23,7 @@ class AppTheme {
 
   AppTheme({
     this.selectedColor = 0,
-  })  : assert(selectedColor > 0, 'Selected color must be less than 0'),
+  })  : assert(selectedColor >= 0, 'Selected color must be less than 0'),
         assert(selectedColor < colorList.length,
             'Selected color must be less than ${colorList.length}');
 
