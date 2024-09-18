@@ -26,4 +26,40 @@ const appMenuItems = <MenuItems>[
     link: '/cards',
     icon: Icons.credit_card,
   ),
+  MenuItems(
+    title: 'Progress Indicators',
+    subtitle: 'Generales y controlados',
+    link: '/progress',
+    icon: Icons.refresh_rounded,
+  ),
+  MenuItems(
+    title: 'Snackbars y diálogos',
+    subtitle: 'Indicadores de pantalla',
+    link: '/snackbar',
+    icon: Icons.https,
+  ),
+  MenuItems(
+    title: 'Animated container',
+    subtitle: 'Stateful Widget Animado',
+    link: '/animated',
+    icon: Icons.https,
+  ),
+  MenuItems(
+    title: 'Ui Controls + Tiles',
+    subtitle: 'Una serie de controles de Flutter',
+    link: '/uicontrols',
+    icon: Icons.https,
+  ),
+  MenuItems(
+    title: 'Introducción a la aplicación',
+    subtitle: 'Pequeño tutorial introductorio',
+    link: '/apptutorial',
+    icon: Icons.https,
+  ),
+  MenuItems(
+    title: 'InfiniteScroll y Pull',
+    subtitle: 'Listas infinitas y pull to refresh',
+    link: '/apptutorial',
+    icon: Icons.https,
+  ),
 ];
