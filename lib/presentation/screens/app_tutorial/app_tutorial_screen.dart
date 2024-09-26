@@ -18,17 +18,17 @@ final slides = <SlideInfo>[
   const SlideInfo(
     'Busca La comida',
     'Duis quis non quis mollit adipisicing non adipisicing ad commodo sint qui aliquip elit. Tempor do id laborum elit esse officia Lorem. Et irure consectetur laborum amet adipisicing eiusmod et sint anim. Fugiat laboris anim nostrud irure est qui eu sit occaecat est non. Amet ipsum commodo eiusmod et commodo. Velit pariatur reprehenderit deserunt enim ullamco.',
-    'assets/1.png',
+    'assets/images/1.png',
   ),
   const SlideInfo(
     'Entrega rápida',
     'Tempor excepteur mollit nulla excepteur fugiat officia enim anim qui dolor. Proident duis commodo duis exercitation ipsum sunt sit sit. Nulla deserunt est aute reprehenderit velit ullamco ut occaecat nulla nostrud non quis excepteur. Pariatur sint excepteur elit sint ipsum fugiat duis. Fugiat non aute dolore magna mollit elit. Cillum Lorem id ullamco officia ut do voluptate ipsum. Pariatur amet ex Lorem do velit ipsum labore Lorem nulla magna sint.',
-    'assets/2.png',
+    'assets/images/2.png',
   ),
   const SlideInfo(
     'Disfruta la comida',
     'Nulla aliqua occaecat amet et eu qui magna dolore tempor aute. Sunt eu duis anim sunt ad excepteur quis. Mollit ea fugiat incididunt in. Ex Lorem excepteur excepteur officia ullamco esse mollit dolore. Lorem amet proident veniam tempor sit veniam aute culpa nostrud ad cupidatat veniam. Elit nisi do sit tempor duis adipisicing magna ea laboris. Cillum non eiusmod sit et quis sunt ut cillum in.',
-    'assets/3.png',
+    'assets/images/3.png',
   ),
 ];
 

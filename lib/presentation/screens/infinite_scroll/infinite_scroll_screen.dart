@@ -45,6 +45,32 @@ class _InfiniteScrollScreenState extends State<InfiniteScrollScreen> {
     isLoading = false;
     if (!mounted) return;
     setState(() {});
+    moveScrollToBotton();
+  }
+
+  Future<void> onRefresh() async {
+    isLoading = true;
+    setState(() {});
+
+    await Future.delayed(const Duration(seconds: 2));
+    if (!mounted) return;
+    isLoading = false;
+    final lastId = imagesIds.last;
+    imagesIds.clear();
+    imagesIds.add(lastId + 1);
+    addFiveImages();
+    setState(() {});
+  }
+
+  void moveScrollToBotton() {
+    if (_scrollController.position.pixels + 150 <=
+        _scrollController.position.maxScrollExtent) return;
+
+    _scrollController.animateTo(
+      _scrollController.position.pixels + 120,
+      duration: const Duration(milliseconds: 300),
+      curve: Curves.fastEaseInToSlowEaseOut,
+    );
   }
 
   @override
@@ -57,26 +83,28 @@ class _InfiniteScrollScreenState extends State<InfiniteScrollScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
-      appBar: AppBar(
-        title: const Text('InfiniteScroll'),
-      ),
       body: MediaQuery.removePadding(
         context: context,
         removeTop: true,
         removeBottom: true,
-        child: ListView.builder(
-          controller: _scrollController,
-          itemCount: imagesIds.length,
-          itemBuilder: (context, index) {
-            return FadeInImage(
-              fit: BoxFit.cover,
-              width: double.infinity,
-              placeholder: const AssetImage('assets/jar-loading.gif'),
-              image: NetworkImage(
-                'https://picsum.photos/id/${imagesIds[index]}/500/300',
-              ),
-            );
-          },
+        child: RefreshIndicator(
+          edgeOffset: 10,
+          strokeWidth: 2,
+          onRefresh: onRefresh,
+          child: ListView.builder(
+            controller: _scrollController,
+            itemCount: imagesIds.length,
+            itemBuilder: (context, index) {
+              return FadeInImage(
+                fit: BoxFit.cover,
+                width: double.infinity,
+                placeholder: const AssetImage('assets/images/jar-loading.gif'),
+                image: NetworkImage(
+                  'https://picsum.photos/id/${imagesIds[index]}/500/300',
+                ),
+              );
+            },
+          ),
         ),
       ),
       floatingActionButton: FloatingActionButton(
@@ -85,8 +113,11 @@ class _InfiniteScrollScreenState extends State<InfiniteScrollScreen> {
         },
         child: SpinPerfect(
           infinite: isLoading,
-          child: Icon(
-              isLoading ? Icons.arrow_back : Icons.arrow_back_ios_new_outlined),
+          child: FadeIn(
+            child: Icon(isLoading
+                ? Icons.refresh_rounded
+                : Icons.arrow_back_ios_new_outlined),
+          ),
         ),
       ),
     );
