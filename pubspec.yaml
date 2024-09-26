@@ -20,7 +20,9 @@ dev_dependencies:
 flutter:
   uses-material-design: true
 
-assets:
-  - assets/
-  - assets/images/
+assets: 
+  - assets/jar-loading.gif
+  - assets/1.png
+  - assets/2.png
+  - assets/3.png
  
